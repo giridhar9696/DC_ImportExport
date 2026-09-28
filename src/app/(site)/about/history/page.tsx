@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { pageMetadata } from "@/lib/seo";
+import { assetPath } from "@/lib/assets";
 
 export const metadata = pageMetadata({
   title: "History",
@@ -49,7 +50,7 @@ export default function HistoryPage() {
           </div>
           <div className="relative min-h-[360px] overflow-hidden rounded-lg border border-slate-200 shadow-soft">
             <Image
-              src="/assets/about-history.png"
+              src={assetPath("/assets/about-history.png")}
               alt="Archival style trade documentation"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"

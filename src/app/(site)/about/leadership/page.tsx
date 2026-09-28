@@ -1,6 +1,7 @@
 import { BriefcaseBusiness, UserRound } from "lucide-react";
 import Image from "next/image";
 import { pageMetadata } from "@/lib/seo";
+import { assetPath } from "@/lib/assets";
 
 export const metadata = pageMetadata({
   title: "Leadership",
@@ -46,7 +47,7 @@ export default function LeadershipPage() {
           </div>
           <div className="relative min-h-[340px] overflow-hidden rounded-lg border border-slate-200 shadow-soft">
             <Image
-              src="/assets/about-leadership.png"
+              src={assetPath("/assets/about-leadership.png")}
               alt="Business discussion in a corporate setting"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"

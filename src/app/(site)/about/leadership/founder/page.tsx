@@ -1,5 +1,1 @@
-import { redirect } from "next/navigation";
-
-export default function FounderPage() {
-  redirect("/about/leadership");
-}
+export { default } from "../page";

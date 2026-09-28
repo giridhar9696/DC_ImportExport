@@ -1,6 +1,7 @@
 import { Award, BookOpen, Camera, FileText, Newspaper, PlaySquare } from "lucide-react";
+import { assetPath } from "@/lib/assets";
 
-const base = "/assets/dc ie/stitch_dc_imports_brand_photography";
+const base = assetPath("/assets/dc ie/stitch_dc_imports_brand_photography");
 
 export const mediaHeroImage = `${base}/editorial_documentary_photography_a_premium_international_trade_and_logistics/screen.png`;
 

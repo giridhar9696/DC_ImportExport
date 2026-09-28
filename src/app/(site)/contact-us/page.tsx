@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { pageMetadata } from "@/lib/seo";
+import { assetPath } from "@/lib/assets";
 import { ContactForm } from "./contact-form";
 
 export const metadata = pageMetadata({
@@ -13,7 +14,7 @@ export const metadata = pageMetadata({
 });
 
 const contactHeroImage =
-  "/assets/dc ie/stitch_dc_imports_brand_photography/corporate_interior_photography_small_international_business_team_having_an/screen.png";
+  assetPath("/assets/dc ie/stitch_dc_imports_brand_photography/corporate_interior_photography_small_international_business_team_having_an/screen.png");
 
 const contactDetails = [
   {

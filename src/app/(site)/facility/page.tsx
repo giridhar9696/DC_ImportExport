@@ -2,6 +2,7 @@ import { ClipboardCheck, Container, ShieldCheck, Warehouse } from "lucide-react"
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { pageMetadata } from "@/lib/seo";
+import { assetPath } from "@/lib/assets";
 
 export const metadata = pageMetadata({
   title: "Facility",
@@ -11,10 +12,10 @@ export const metadata = pageMetadata({
 });
 
 const heroImage =
-  "/assets/dc ie/stitch_dc_imports_brand_photography/industrial_architecture_photography_massive_high_bay_automated_warehouse/screen.png";
+  assetPath("/assets/dc ie/stitch_dc_imports_brand_photography/industrial_architecture_photography_massive_high_bay_automated_warehouse/screen.png");
 
 const introImage =
-  "/assets/dc ie/stitch_dc_imports_brand_photography/modern_logistics_warehousing_multi_tier_modern_logistics_distribution_center/screen.png";
+  assetPath("/assets/dc ie/stitch_dc_imports_brand_photography/modern_logistics_warehousing_multi_tier_modern_logistics_distribution_center/screen.png");
 
 const features = [
   {
@@ -51,17 +52,17 @@ const gallery = [
     alt: "Modern logistics distribution center"
   },
   {
-    src: "/assets/dc ie/stitch_dc_imports_brand_photography/industrial_documentary_photography_experienced_warehouse_and_port_logistics/screen.png",
+    src: assetPath("/assets/dc ie/stitch_dc_imports_brand_photography/industrial_documentary_photography_experienced_warehouse_and_port_logistics/screen.png"),
     title: "Operational Coordination",
     alt: "Warehouse and port logistics coordination"
   },
   {
-    src: "/assets/dc ie/stitch_dc_imports_brand_photography/industrial_port_photography_heavy_duty_container_gantry_cranes_towering_against/screen.png",
+    src: assetPath("/assets/dc ie/stitch_dc_imports_brand_photography/industrial_port_photography_heavy_duty_container_gantry_cranes_towering_against/screen.png"),
     title: "Port Interface",
     alt: "Container gantry cranes at port"
   },
   {
-    src: "/assets/dc ie/stitch_dc_imports_brand_photography/maritime_cargo_operations_close_up_view_of_heavy_container_twistlocks_and/screen.png",
+    src: assetPath("/assets/dc ie/stitch_dc_imports_brand_photography/maritime_cargo_operations_close_up_view_of_heavy_container_twistlocks_and/screen.png"),
     title: "Cargo Detail",
     alt: "Close view of cargo securing hardware"
   }

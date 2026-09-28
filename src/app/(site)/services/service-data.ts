@@ -1,4 +1,5 @@
 import { ClipboardList, FileText, Globe2, PackageCheck, Ship, Truck } from "lucide-react";
+import { assetPath } from "@/lib/assets";
 
 export const services = [
   {
@@ -6,7 +7,7 @@ export const services = [
     title: "Import",
     eyebrow: "Import Service",
     image:
-      "/assets/dc ie/stitch_dc_imports_brand_photography/industrial_commercial_photography_inside_a_bustling_modern_indian_export/screen.png",
+      assetPath("/assets/dc ie/stitch_dc_imports_brand_photography/industrial_commercial_photography_inside_a_bustling_modern_indian_export/screen.png"),
     icon: PackageCheck,
     intro:
       "Illustrative demo content for coordinating inbound trade activity with clear communication, document readiness, and practical shipment planning.",
@@ -37,7 +38,7 @@ export const services = [
     title: "Export",
     eyebrow: "Export Service",
     image:
-      "/assets/dc ie/stitch_dc_imports_brand_photography/commercial_editorial_photography_a_massive_modern_container_ship_stacked_with/screen.png",
+      assetPath("/assets/dc ie/stitch_dc_imports_brand_photography/commercial_editorial_photography_a_massive_modern_container_ship_stacked_with/screen.png"),
     icon: Ship,
     intro:
       "Illustrative demo content for presenting outbound trade support with a focus on communication, preparation, and shipment-facing workflows.",
@@ -68,7 +69,7 @@ export const services = [
     title: "Logistics",
     eyebrow: "Logistics Service",
     image:
-      "/assets/dc ie/stitch_dc_imports_brand_photography/commercial_transportation_a_modern_logistics_fleet_of_container_transport/screen.png",
+      assetPath("/assets/dc ie/stitch_dc_imports_brand_photography/commercial_transportation_a_modern_logistics_fleet_of_container_transport/screen.png"),
     icon: Truck,
     intro:
       "Illustrative demo content for logistics coordination across transport, warehouse, and shipment communication touchpoints.",
@@ -99,7 +100,7 @@ export const services = [
     title: "Sourcing",
     eyebrow: "Sourcing Service",
     image:
-      "/assets/dc ie/stitch_dc_imports_brand_photography/corporate_lifestyle_photography_two_trade_specialists_and_sourcing_managers/screen.png",
+      assetPath("/assets/dc ie/stitch_dc_imports_brand_photography/corporate_lifestyle_photography_two_trade_specialists_and_sourcing_managers/screen.png"),
     icon: Globe2,
     intro:
       "Illustrative demo content for sourcing conversations, vendor discovery workflows, and practical procurement communication.",
@@ -130,7 +131,7 @@ export const services = [
     title: "Documentation",
     eyebrow: "Documentation Service",
     image:
-      "/assets/dc ie/stitch_dc_imports_brand_photography/professional_corporate_document_photography_an_international_trade/screen.png",
+      assetPath("/assets/dc ie/stitch_dc_imports_brand_photography/professional_corporate_document_photography_an_international_trade/screen.png"),
     icon: FileText,
     intro:
       "Illustrative demo content for trade documentation readiness, paperwork coordination, and document-focused communication.",
@@ -159,10 +160,10 @@ export const services = [
 ];
 
 export const serviceHeroImage =
-  "/assets/dc ie/stitch_dc_imports_brand_photography/commercial_logistics_photography_a_colossal_container_vessel_docked_at_a_state/screen.png";
+  assetPath("/assets/dc ie/stitch_dc_imports_brand_photography/commercial_logistics_photography_a_colossal_container_vessel_docked_at_a_state/screen.png");
 
 export const tariffImage =
-  "/assets/dc ie/stitch_dc_imports_brand_photography/professional_detail_still_life_photography_close_up_top_angle_view_of_an/screen.png";
+  assetPath("/assets/dc ie/stitch_dc_imports_brand_photography/professional_detail_still_life_photography_close_up_top_angle_view_of_an/screen.png");
 
 export const tariffCategories = [
   {

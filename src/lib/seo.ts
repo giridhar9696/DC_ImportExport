@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { assetPath } from "@/lib/assets";
 
 const siteName = "DC Imports & Exports";
 const tagline = "Connecting Markets. Moving Possibilities.";
@@ -7,13 +8,14 @@ const defaultDescription =
 
 function getMetadataBase() {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   if (!siteUrl) {
     return undefined;
   }
 
   try {
-    return new URL(siteUrl);
+    return new URL(`${siteUrl.replace(/\/$/, "")}${basePath}/`);
   } catch {
     return undefined;
   }
@@ -45,7 +47,8 @@ export const canonicalRoutes = [
 
 export function absoluteUrl(path = "/") {
   const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-  return new URL(path, base).toString();
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  return new URL(`${basePath}${path}`, base).toString();
 }
 
 export function pageMetadata({
@@ -87,8 +90,8 @@ export const siteMetadata: Metadata = {
   },
   description: defaultDescription,
   icons: {
-    icon: "/assets/dc-logo.jpeg",
-    apple: "/assets/dc-logo.jpeg"
+    icon: assetPath("/assets/dc-logo.jpeg"),
+    apple: assetPath("/assets/dc-logo.jpeg")
   },
   openGraph: {
     title: siteName,

@@ -3,8 +3,9 @@
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import { assetPath } from "@/lib/assets";
 
-const equipment = Array.from({ length: 11 }, (_, index) => `/assets/equipment/equipment-${index + 1}.png`);
+const equipment = Array.from({ length: 11 }, (_, index) => assetPath(`/assets/equipment/equipment-${index + 1}.png`));
 
 export function EquipmentFanCarousel() {
   const [active, setActive] = useState(0);

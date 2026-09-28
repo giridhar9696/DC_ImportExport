@@ -12,6 +12,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { pageMetadata } from "@/lib/seo";
+import { assetPath } from "@/lib/assets";
 
 export const metadata = pageMetadata({
   title: "Careers",
@@ -21,10 +22,10 @@ export const metadata = pageMetadata({
 });
 
 const heroImage =
-  "/assets/dc ie/stitch_dc_imports_brand_photography/corporate_culture_photography_a_group_of_dynamic_diverse_young_indian_logistics/screen.png";
+  assetPath("/assets/dc ie/stitch_dc_imports_brand_photography/corporate_culture_photography_a_group_of_dynamic_diverse_young_indian_logistics/screen.png");
 
 const workplaceImage =
-  "/assets/dc ie/stitch_dc_imports_brand_photography/corporate_interior_photography_small_international_business_team_having_an/screen.png";
+  assetPath("/assets/dc ie/stitch_dc_imports_brand_photography/corporate_interior_photography_small_international_business_team_having_an/screen.png");
 
 const workCards = [
   {

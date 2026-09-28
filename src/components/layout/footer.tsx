@@ -18,9 +18,14 @@ const socialItems = [
   { label: "X", icon: Twitter }
 ];
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export function Footer() {
   return (
-    <footer className="border-t border-white/20 bg-brand-navy bg-[linear-gradient(rgba(11,31,58,0.82),rgba(11,31,58,0.9)),url('/assets/quick-link-ship.png')] bg-cover bg-center text-white">
+    <footer
+      className="border-t border-white/20 bg-brand-navy bg-cover bg-center text-white"
+      style={{ backgroundImage: `linear-gradient(rgba(11,31,58,0.82),rgba(11,31,58,0.9)),url('${basePath}/assets/quick-link-ship.png')` }}
+    >
       <div className="container-page grid gap-10 py-12 lg:grid-cols-[1.15fr_0.85fr_0.9fr] lg:py-14">
         <div>
           <div className="flex items-center gap-4">

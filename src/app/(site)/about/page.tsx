@@ -2,6 +2,7 @@ import { ArrowRight, BookOpen, Compass, UsersRound } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
+import { assetPath } from "@/lib/assets";
 
 export const metadata = pageMetadata({
   title: "About",
@@ -46,7 +47,7 @@ export default function AboutPage() {
       <section className="relative isolate overflow-hidden bg-brand-navy text-white">
         <div className="absolute inset-0 -z-10">
           <Image
-            src="/assets/about-hero-port.png"
+            src={assetPath("/assets/about-hero-port.png")}
             alt="Wide view of port infrastructure"
             fill
             priority
@@ -90,7 +91,7 @@ export default function AboutPage() {
           </div>
           <div className="relative min-h-[360px] overflow-hidden rounded-lg border border-slate-200 shadow-soft">
             <Image
-              src="/assets/about-office.png"
+              src={assetPath("/assets/about-office.png")}
               alt="Modern corporate office interior"
               fill
               sizes="(max-width: 1024px) 100vw, 46vw"

@@ -3,7 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { EquipmentFanCarousel } from "@/components/ui/equipment-fan-carousel";
+import { assetPath } from "@/lib/assets";
 import { pageMetadata } from "@/lib/seo";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const metadata = pageMetadata({
   title: "Home",
@@ -18,7 +21,7 @@ const serviceCards = [
     description:
       "Illustrative demo content for inbound trade coordination, supplier communication, and shipment planning.",
     href: "/services",
-    image: "/assets/home-import-export.png",
+    image: assetPath("/assets/home-import-export.png"),
     icon: PackageCheck
   },
   {
@@ -26,7 +29,7 @@ const serviceCards = [
     description:
       "Illustrative demo content for outbound cargo movement, customer coordination, and market-ready trade workflows.",
     href: "/services",
-    image: "/assets/home-hero-ship.png",
+    image: assetPath("/assets/home-hero-ship.png"),
     icon: Ship
   },
   {
@@ -34,7 +37,7 @@ const serviceCards = [
     description:
       "Illustrative demo content for freight movement, transport planning, and connected supply chain visibility.",
     href: "/services",
-    image: "/assets/home-logistics.png",
+    image: assetPath("/assets/home-logistics.png"),
     icon: Truck
   },
   {
@@ -42,7 +45,7 @@ const serviceCards = [
     description:
       "Illustrative demo content for product discovery, vendor conversations, and practical procurement support.",
     href: "/services",
-    image: "/assets/home-sourcing.png",
+    image: assetPath("/assets/home-sourcing.png"),
     icon: Globe2
   },
   {
@@ -50,7 +53,7 @@ const serviceCards = [
     description:
       "Illustrative demo content for trade paperwork, document readiness, and process-aligned coordination.",
     href: "/services",
-    image: "/assets/home-documentation.png",
+    image: assetPath("/assets/home-documentation.png"),
     icon: FileText
   }
 ];
@@ -67,8 +70,8 @@ export default function HomePage() {
     <>
       <section className="relative isolate overflow-hidden bg-brand-navy text-white">
         <div className="absolute inset-0 -z-10">
-          <video className="h-full w-full object-cover" autoPlay muted loop playsInline poster="/assets/home-hero-ship.png" aria-label="Cargo ship at sea">
-            <source src="/assets/home-cargo.mp4" type="video/mp4" />
+          <video className="h-full w-full object-cover" autoPlay muted loop playsInline poster={`${basePath}/assets/home-hero-ship.png`} aria-label="Cargo ship at sea">
+            <source src={`${basePath}/assets/home-cargo.mp4`} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/25" />
         </div>
@@ -103,7 +106,7 @@ export default function HomePage() {
         <div className="container-page grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="relative min-h-[360px] overflow-hidden rounded-lg border border-slate-200 shadow-soft sm:min-h-[460px]">
             <Image
-              src="/assets/home-global-trade.png"
+              src={assetPath("/assets/home-global-trade.png")}
               alt="Aerial view of a busy international port"
               fill
               sizes="(max-width: 1024px) 100vw, 48vw"
