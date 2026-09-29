@@ -83,7 +83,7 @@ export default function FacilityPage() {
           />
         </div>
         <div className="container-page flex min-h-[540px] items-center py-20 sm:py-24">
-          <div className="max-w-3xl">
+          <div className="hero-copy-panel max-w-3xl">
             <p className="text-sm font-bold uppercase tracking-[0.24em] text-teal-200">
               Facility
             </p>

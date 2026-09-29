@@ -75,7 +75,7 @@ export default function HomePage() {
           </video>
         </div>
         <div className="container-page flex min-h-[640px] items-center py-20 sm:py-24 lg:min-h-[720px]">
-          <div className="max-w-3xl">
+          <div className="hero-copy-panel max-w-3xl">
             <p className="text-sm font-medium uppercase tracking-[0.24em] text-white">
               International Trade Coordination
             </p>

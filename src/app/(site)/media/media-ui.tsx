@@ -19,7 +19,7 @@ export function MediaHero({
         <Image src={image} alt={imageAlt} fill priority sizes="100vw" className="object-cover" />
       </div>
       <div className="container-page flex min-h-[500px] items-center py-20 sm:py-24">
-        <div className="max-w-3xl">
+        <div className="hero-copy-panel max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-[0.24em] text-teal-200">
             {eyebrow}
           </p>
