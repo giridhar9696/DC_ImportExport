@@ -23,81 +23,53 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 export function Footer() {
   return (
     <footer
-      className="border-t border-brand-navy/15 bg-cover bg-center text-brand-navy"
-      style={{ backgroundImage: `url('${basePath}/assets/footer-truck.png')` }}
+      className="border-t border-slate-950/15 bg-[#f8f1dc] bg-no-repeat text-slate-950"
+      style={{
+        backgroundImage: `url('${basePath}/assets/footer-truck.png')`,
+        backgroundPosition: "center bottom",
+        backgroundSize: "100% auto"
+      }}
     >
       <div className="container-page py-10 lg:py-12">
-        <div className="grid gap-10 rounded-3xl border border-white/30 bg-white/20 p-6 shadow-[0_18px_50px_rgba(11,31,58,0.08)] backdrop-blur-sm sm:p-8 lg:grid-cols-[1.15fr_0.85fr_0.9fr] lg:p-10">
-        <div>
-          <div className="flex items-center gap-4">
-            <span className="relative block h-14 w-14 shrink-0 overflow-hidden rounded-md bg-white">
-              <Image src={logoSrc} alt="DC logo" fill sizes="56px" className="object-contain" />
-            </span>
-            <div>
-              <p className="font-display text-2xl font-semibold leading-tight text-brand-navy">
-                DC Imports & Exports
-              </p>
-              <p className="mt-1 text-xs font-medium tracking-[0.14em] text-slate-700">
-                Connecting Markets. Moving Possibilities.
-              </p>
+        <div className="grid gap-10 rounded-3xl border border-white/30 bg-white/15 p-6 shadow-[0_18px_50px_rgba(11,31,58,0.06)] backdrop-blur-[2px] sm:p-8 lg:grid-cols-[1.15fr_0.85fr_0.9fr] lg:p-10">
+          <div>
+            <div className="flex items-center gap-4">
+              <span className="relative block h-14 w-14 shrink-0 overflow-hidden rounded-md bg-white/70">
+                <Image src={logoSrc} alt="DC logo" fill sizes="56px" className="object-contain" />
+              </span>
+              <div>
+                <p className="font-display text-2xl font-semibold leading-tight text-slate-950">DC Imports & Exports</p>
+                <p className="mt-1 text-xs font-medium tracking-[0.14em] text-slate-800">Connecting Markets. Moving Possibilities.</p>
+              </div>
+            </div>
+            <p className="mt-5 max-w-lg text-sm leading-7 text-slate-800">Illustrative corporate website foundation for international trade, logistics, media, careers, and enquiry content.</p>
+            <div aria-label="Social media placeholders" className="mt-6 flex gap-3">
+              {socialItems.map((item) => {
+                const Icon = item.icon;
+                return <span key={item.label} aria-label={item.label} className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-slate-950/30 text-slate-950 transition hover:border-brand-teal hover:text-brand-teal"><Icon aria-hidden="true" className="h-4 w-4" /></span>;
+              })}
             </div>
           </div>
-          <p className="mt-5 max-w-lg text-sm leading-7 text-slate-700">
-            Illustrative corporate website foundation for international trade,
-            logistics, media, careers, and enquiry content.
-          </p>
-          <div aria-label="Social media placeholders" className="mt-6 flex gap-3">
-            {socialItems.map((item) => {
-              const Icon = item.icon;
-              return (
-                <span
-                  key={item.label}
-                  aria-label={item.label}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-brand-navy/30 text-brand-navy transition hover:border-brand-teal hover:text-brand-teal"
-                >
-                  <Icon aria-hidden="true" className="h-4 w-4" />
-                </span>
-              );
-            })}
+
+          <div>
+            <h2 className="font-display text-lg font-semibold text-slate-950">Quick Links</h2>
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              {quickLinks.map((link) => <Link key={link.href} href={link.href} className="text-sm font-medium text-slate-950 transition hover:text-brand-teal">{link.label}</Link>)}
+            </div>
+          </div>
+
+          <div>
+            <h2 className="font-display text-lg font-semibold text-slate-950">Contact</h2>
+            <div className="mt-4 space-y-3 text-sm leading-6 text-slate-800">
+              <p className="flex gap-3"><MapPin aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-brand-teal" /><span>Illustrative demo address placeholder</span></p>
+              <p className="flex gap-3"><Phone aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-brand-teal" /><span>Illustrative demo phone placeholder</span></p>
+              <p className="flex gap-3"><Mail aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-brand-teal" /><span>Illustrative demo email placeholder</span></p>
+            </div>
           </div>
         </div>
       </div>
-
-        <div>
-          <h2 className="font-display text-lg font-semibold text-brand-navy">Quick Links</h2>
-          <div className="mt-4 grid grid-cols-2 gap-3">
-            {quickLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-brand-navy transition hover:text-brand-teal"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h2 className="font-display text-lg font-semibold text-brand-navy">Contact</h2>
-          <div className="mt-4 space-y-3 text-sm leading-6 text-slate-700">
-            <p className="flex gap-3">
-              <MapPin aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-brand-teal" />
-              <span>Illustrative demo address placeholder</span>
-            </p>
-            <p className="flex gap-3">
-              <Phone aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-brand-teal" />
-              <span>Illustrative demo phone placeholder</span>
-            </p>
-            <p className="flex gap-3">
-              <Mail aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-brand-teal" />
-              <span>Illustrative demo email placeholder</span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="border-t border-brand-navy/15 py-5">
-        <div className="container-page flex flex-col gap-2 text-xs font-medium text-slate-700 sm:flex-row sm:items-center sm:justify-between">
+      <div className="border-t border-slate-950/15 py-5">
+        <div className="container-page flex flex-col gap-2 text-xs font-medium text-slate-800 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright {new Date().getFullYear()} DC Imports & Exports. All rights reserved.</p>
           <p>Demo website foundation.</p>
         </div>

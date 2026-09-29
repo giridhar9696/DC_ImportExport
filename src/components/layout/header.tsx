@@ -42,16 +42,16 @@ export function Header() {
     : "hover:bg-brand-background hover:text-brand-teal focus:bg-brand-background focus:text-brand-teal";
 
   return (
-    <header className={`${isHome ? "absolute inset-x-0 top-0" : "sticky top-0"} z-50 border-b border-white/35 bg-white/15 shadow-[0_8px_30px_rgba(11,31,58,0.08)] backdrop-blur-2xl backdrop-saturate-150`}>
+    <header className={`${isHome ? "absolute inset-x-0 top-0" : "sticky top-0"} z-50 border-b border-white/35 bg-white/10 shadow-[0_8px_30px_rgba(11,31,58,0.08)] backdrop-blur-md backdrop-saturate-150`}>
       <div className="container-page flex min-h-20 items-center gap-5 py-3 lg:min-h-24">
         <Link href="/" aria-label="DC Imports & Exports home" className="flex min-w-0 items-center">
-          <span className="relative block h-11 w-11 shrink-0 overflow-hidden rounded-md sm:h-12 sm:w-12">
+          <span className="relative block h-14 w-14 shrink-0 overflow-hidden rounded-md sm:h-16 sm:w-16">
             <Image
               src={logoSrc}
               alt="DC logo"
               fill
               priority
-              sizes="(max-width: 640px) 48px, 56px"
+              sizes="(max-width: 640px) 64px, 80px"
               className="object-contain"
             />
           </span>

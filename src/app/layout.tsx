@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { BackToTop } from "@/components/ui/back-to-top";
 import { siteMetadata } from "@/lib/seo";
 import "./globals.css";
 
@@ -17,6 +18,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );
