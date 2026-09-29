@@ -1,80 +1,48 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { navigation, type NavItem } from "@/config/navigation";
+import { navigation } from "@/config/navigation";
 import { logoSrc } from "@/lib/logo";
 
-function DesktopDropdown({ item, isHome, isOpen, onToggle, onNavigate }: { item: NavItem; isHome: boolean; isOpen: boolean; onToggle: () => void; onNavigate: () => void }) {
-  return (
-    <div className="relative">
-      <button type="button" aria-expanded={isOpen} onClick={onToggle} className={`inline-flex min-h-10 items-center gap-1 rounded-md px-2.5 text-xs font-semibold uppercase tracking-[0.06em] sm:px-3 sm:text-sm sm:tracking-[0.08em] ${isHome ? "text-white hover:bg-white/15 hover:text-teal-100 focus:bg-white/15 focus:text-teal-100" : "text-brand-navy hover:bg-brand-background hover:text-brand-teal focus:bg-brand-background focus:text-brand-teal"} transition`}>
-        {item.label}
-        <ChevronDown aria-hidden="true" className={`h-4 w-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
-      </button>
-      <div className={`absolute left-0 top-full z-30 min-w-56 rounded-lg border border-slate-200 bg-white p-2 shadow-soft transition duration-200 ${isOpen ? "visible translate-y-0 opacity-100" : "invisible pointer-events-none translate-y-2 opacity-0"}`}>
-        {item.children?.map((child) => (
-          <Link
-            key={child.href}
-            href={child.href ?? "#"}
-            onClick={onNavigate}
-            className="block rounded-md px-3 py-2.5 text-sm font-semibold text-brand-navy hover:bg-brand-background hover:text-brand-teal focus:bg-brand-background focus:text-brand-teal"
-          >
-            {child.label}
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-}
+const sectionGroups = navigation.filter((item) => item.children);
 
 export function Header() {
-  const pathname = usePathname();
-  const isHome = pathname === "/";
-  const [openMenu, setOpenMenu] = useState<string | null>(null);
-  useEffect(() => setOpenMenu(null), [pathname]);
-  const navText = isHome ? "text-white" : "text-brand-navy";
-  const navHover = isHome
-    ? "hover:bg-white/15 hover:text-teal-100 focus:bg-white/15 focus:text-teal-100"
-    : "hover:bg-brand-background hover:text-brand-teal focus:bg-brand-background focus:text-brand-teal";
+  const isHome = usePathname() === "/";
+  const textClass = isHome ? "text-white" : "text-brand-navy";
+  const buttonClass = isHome
+    ? "border-white/25 bg-white/10 hover:bg-white/25 hover:text-white"
+    : "border-brand-navy/10 bg-white/35 hover:bg-white/75 hover:text-brand-teal";
 
   return (
-    <header className={`${isHome ? "absolute inset-x-0 top-0" : "sticky top-0"} z-50 border-b border-white/35 bg-white/10 shadow-[0_8px_30px_rgba(11,31,58,0.08)] backdrop-blur-md backdrop-saturate-150`}>
-      <div className="container-page flex min-h-20 items-center gap-5 py-3 lg:min-h-24">
-        <Link href="/" aria-label="DC Imports & Exports home" className="flex min-w-0 items-center">
-          <span className="relative block h-14 w-14 shrink-0 overflow-hidden rounded-md sm:h-16 sm:w-16">
-            <Image
-              src={logoSrc}
-              alt="DC logo"
-              fill
-              priority
-              sizes="(max-width: 640px) 64px, 80px"
-              className="object-contain"
-            />
-          </span>
-        </Link>
-
-        <nav
-          aria-label="Primary navigation"
-          className="ml-auto flex flex-wrap items-center justify-end gap-0.5 max-md:w-full max-md:justify-center"
-        >
-          {navigation.map((item) =>
-            item.children ? (
-              <DesktopDropdown key={item.label} item={item} isHome={isHome} isOpen={openMenu === item.label} onToggle={() => setOpenMenu(openMenu === item.label ? null : item.label)} onNavigate={() => setOpenMenu(null)} />
-            ) : (
-              <Link
-                key={item.href}
-                href={item.href ?? "#"}
-                className={`inline-flex min-h-10 items-center rounded-md px-2.5 text-xs font-semibold uppercase tracking-[0.06em] ${navText} transition sm:px-3 sm:text-sm sm:tracking-[0.08em] ${navHover}`}
-              >
+    <header className={`${isHome ? "absolute inset-x-0 top-0" : "sticky top-0"} z-50 px-3 pt-3 sm:px-5`}>
+      <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/30 bg-white/10 p-2 shadow-[0_12px_35px_rgba(11,31,58,0.12)] backdrop-blur-md">
+        <div className="flex flex-wrap items-center gap-2">
+          <Link href="/" aria-label="DC Imports & Exports home" className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border ${buttonClass}`}>
+            <Image src={logoSrc} alt="DC logo" width={56} height={56} priority sizes="56px" className="h-11 w-11 object-contain" />
+          </Link>
+          <nav aria-label="Primary navigation" className="flex min-w-0 flex-1 flex-wrap justify-center gap-1">
+            {navigation.map((item) => (
+              <Link key={item.label} href={item.href ?? "#"} className={`inline-flex min-h-10 items-center rounded-full border px-3 text-[0.68rem] font-semibold uppercase tracking-[0.06em] transition sm:px-4 sm:text-xs ${textClass} ${buttonClass}`}>
                 {item.label}
               </Link>
-            )
-          )}
-        </nav>
+            ))}
+          </nav>
+        </div>
+
+        <div aria-label="Section navigation" className={`mt-2 flex gap-2 overflow-x-auto rounded-[1.5rem] border border-white/20 bg-white/10 px-2 py-2 scrollbar-none ${textClass}`}>
+          {sectionGroups.map((group) => (
+            <div key={group.label} className="flex shrink-0 items-center gap-1 rounded-full border border-white/20 bg-white/10 px-2 py-1">
+              <span className="px-2 text-[0.62rem] font-semibold uppercase tracking-[0.12em] opacity-70">{group.label}</span>
+              {group.children?.map((child) => (
+                <Link key={child.href} href={child.href ?? "#"} className="rounded-full px-2.5 py-1.5 text-[0.68rem] font-medium transition hover:bg-white/25 hover:text-brand-teal">
+                  {child.label}
+                </Link>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </header>
   );
