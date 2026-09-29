@@ -8,7 +8,7 @@ export const mediaHeroImage = `${base}/editorial_documentary_photography_a_premi
 export const mediaSections = [
   {
     title: "Photos",
-    href: "/media/photos",
+    href: "/media#photos",
     icon: Camera,
     image: `${base}/commercial_logistics_photography_a_colossal_container_vessel_docked_at_a_state/screen.png`,
     description:
@@ -16,7 +16,7 @@ export const mediaSections = [
   },
   {
     title: "Videos",
-    href: "/media/videos",
+    href: "/media#videos",
     icon: PlaySquare,
     image: `${base}/abstract_maritime_logistics_composition_neat_geometric_stacks_of_colorful_blue/screen.png`,
     description:
@@ -24,7 +24,7 @@ export const mediaSections = [
   },
   {
     title: "Press",
-    href: "/media/press",
+    href: "/media#press",
     icon: Newspaper,
     image: `${base}/editorial_documentary_photography_an_executive_press_clipping_and_business_news/screen.png`,
     description:
@@ -32,7 +32,7 @@ export const mediaSections = [
   },
   {
     title: "Brochure",
-    href: "/media/brochure",
+    href: "/media#brochure",
     icon: BookOpen,
     image: `${base}/editorial_documentary_still_life_a_prestigious_business_journal_publication/screen.png`,
     description:
@@ -40,7 +40,7 @@ export const mediaSections = [
   },
   {
     title: "Certificates",
-    href: "/media/certificates",
+    href: "/media#certificates",
     icon: Award,
     image: `${base}/professional_corporate_photography_global_supply_chain_quality_management_iso/screen.png`,
     description:

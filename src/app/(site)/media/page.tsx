@@ -1,105 +1,26 @@
-import { ArrowRight } from "lucide-react";
+import { Award, BookOpen, FileText, Newspaper, PlaySquare } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { SectionNav } from "@/components/ui/section-nav";
 import { pageMetadata } from "@/lib/seo";
-import { mediaHeroImage, mediaSections } from "./media-data";
+import { demoCertificateCards, demoPressItems, demoVideoCards, mediaHeroImage, mediaSections, photoGallery } from "./media-data";
 import { MediaHero } from "./media-ui";
 
-export const metadata = pageMetadata({
-  title: "Media",
-  description:
-    "Browse demo-safe media sections for photos, videos, press, brochure, and certificates.",
-  path: "/media"
-});
+export const metadata = pageMetadata({ title: "Media", description: "A single-page media centre for supplied and future approved content.", path: "/media" });
+const navItems = ["photos", "videos", "press", "brochure", "certificates", "media-contact"].map((label) => ({ label: label.replace("media-contact", "Contact"), href: `#${label}` }));
 
 export default function MediaPage() {
+  const brochureImage = mediaSections.find((section) => section.title === "Brochure")?.image;
   return (
     <>
-      <MediaHero
-        eyebrow="Media"
-        title="Media resources prepared for approved company content."
-        description="A polished media center for DC Imports & Exports using verified supplied imagery and demo-safe layouts for future photos, videos, press, brochure, and certificate materials."
-        image={mediaHeroImage}
-        imageAlt="Premium trade and logistics editorial media visual"
-      />
-
-      <section className="section-spacing bg-white">
-        <div className="container-page max-w-4xl">
-          <p className="text-sm font-bold uppercase tracking-[0.22em] text-brand-teal">
-            Media Overview
-          </p>
-          <h2 className="heading-lg mt-4">Organized access to visual and document sections.</h2>
-          <p className="body-copy mt-5">
-            Each card links to a dedicated media page. Where verified files do
-            not exist, the section uses clearly labelled illustrative demo states
-            rather than fabricated media or downloads.
-          </p>
-        </div>
-      </section>
-
-      <section className="section-spacing bg-brand-background">
-        <div className="container-page grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {mediaSections.map((section) => {
-            const Icon = section.icon;
-            return (
-              <Link
-                key={section.href}
-                href={section.href}
-                className="group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:border-teal-200"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={section.image}
-                    alt={`${section.title} media visual`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                    className="object-cover transition duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-6">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-teal-50 text-brand-teal">
-                    <Icon aria-hidden="true" className="h-5 w-5" />
-                  </span>
-                  <h2 className="mt-5 font-display text-2xl font-bold text-brand-navy">
-                    {section.title}
-                  </h2>
-                  <p className="mt-3 leading-7 text-slate-600">{section.description}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.1em] text-brand-navy transition group-hover:text-brand-teal">
-                    View section
-                    <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                  </span>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="section-spacing bg-white">
-        <div className="container-page">
-          <div className="rounded-lg bg-brand-navy p-8 text-white shadow-soft sm:p-10 lg:p-12">
-            <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto]">
-              <div>
-                <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-200">
-                  Media Enquiry
-                </p>
-                <h2 className="mt-4 font-display text-3xl font-extrabold">
-                  Request approved media information.
-                </h2>
-                <p className="mt-4 max-w-2xl leading-7 text-slate-200">
-                  Use the Contact Us page for media-related enquiries. This demo
-                  section does not publish unverified documents, press coverage,
-                  certificates, or external links.
-                </p>
-              </div>
-                <Button href="/contact-us" className="bg-white !text-brand-teal hover:bg-slate-100">
-                Contact Us
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <MediaHero eyebrow="Media" title="Media resources prepared for approved company content." description="A polished media centre for DC Imports & Exports using supplied imagery and demo-safe layouts for future photos, videos, press, brochure, and certificate materials." image={mediaHeroImage} imageAlt="Premium trade and logistics editorial media visual" />
+      <SectionNav items={navItems} />
+      <section id="photos" className="section-spacing scroll-mt-24 bg-white"><div className="container-page"><div className="max-w-3xl"><p className="text-sm font-bold uppercase tracking-[0.22em] text-brand-teal">Photos</p><h2 className="heading-lg mt-4">A visual gallery for maritime, logistics, workplace, and trade storytelling.</h2><p className="body-copy mt-5">These supplied assets are illustrative demo visuals and should be approved before real-world publication.</p></div><div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{photoGallery.map((photo, index) => <figure key={photo.src} className={`overflow-hidden rounded-lg border border-slate-200 bg-brand-background shadow-soft ${index === 0 ? "lg:col-span-2" : ""}`}><div className="relative h-64"><Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" /></div><figcaption className="p-5"><h3 className="font-display text-xl font-bold text-brand-navy">{photo.title}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{photo.caption}</p></figcaption></figure>)}</div></div></section>
+      <section id="videos" className="section-spacing scroll-mt-24 bg-brand-background"><div className="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr]"><div><PlaySquare aria-hidden="true" className="h-9 w-9 text-brand-teal" /><p className="mt-6 text-sm font-bold uppercase tracking-[0.22em] text-brand-teal">Videos</p><h2 className="heading-lg mt-4">A showcase ready for future approved video files.</h2><p className="body-copy mt-5">No actual video files were supplied, so these non-playable placeholders preserve the safe behavior of the previous implementation.</p></div><div className="grid gap-4">{demoVideoCards.map((video, index) => <article key={video.title} className="border-l-2 border-brand-teal bg-white p-5"><p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-teal">Video concept 0{index + 1}</p><h3 className="mt-2 font-display text-xl font-bold text-brand-navy">{video.title}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{video.text}</p></article>)}</div></div></section>
+      <section id="press" className="section-spacing scroll-mt-24 bg-white"><div className="container-page"><Newspaper aria-hidden="true" className="h-9 w-9 text-brand-teal" /><p className="mt-6 text-sm font-bold uppercase tracking-[0.22em] text-brand-teal">Press</p><h2 className="heading-lg mt-4">A polished structure for verified company news.</h2><p className="body-copy mt-5 max-w-3xl">No verified press releases or media coverage were supplied, so the content below remains clearly illustrative.</p><div className="mt-10 grid gap-6 md:grid-cols-3">{demoPressItems.map((item) => <article key={item.title} className="border-t-2 border-brand-teal bg-brand-background p-6"><h3 className="font-display text-xl font-bold text-brand-navy">{item.title}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{item.text}</p></article>)}</div></div></section>
+      <section id="brochure" className="section-spacing scroll-mt-24 bg-brand-background"><div className="container-page grid items-center gap-10 lg:grid-cols-[1fr_0.9fr]"><div><BookOpen aria-hidden="true" className="h-9 w-9 text-brand-teal" /><p className="mt-6 text-sm font-bold uppercase tracking-[0.22em] text-brand-teal">Brochure</p><h2 className="heading-lg mt-4">A brochure area reserved for an approved PDF.</h2><p className="body-copy mt-5">No brochure PDF was found in the supplied ZIP, so no fabricated download or file is presented.</p><div className="mt-7 inline-flex items-center gap-3 rounded-md border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700"><FileText aria-hidden="true" className="h-5 w-5 text-brand-teal" />No brochure PDF supplied</div></div>{brochureImage ? <div className="relative min-h-[340px] overflow-hidden rounded-lg border border-slate-200 shadow-soft"><Image src={brochureImage} alt="Business journal style brochure preview visual" fill sizes="(max-width: 1024px) 100vw, 45vw" className="object-cover" /></div> : null}</div></section>
+      <section id="certificates" className="section-spacing scroll-mt-24 bg-white"><div className="container-page"><Award aria-hidden="true" className="h-9 w-9 text-brand-teal" /><p className="mt-6 text-sm font-bold uppercase tracking-[0.22em] text-brand-teal">Certificates</p><h2 className="heading-lg mt-4">Certificate presentation reserved for verified documents.</h2><p className="body-copy mt-5 max-w-3xl">No genuine certificate documents were supplied. These placeholders make no certification, compliance, issuer, number, or date claims.</p><div className="mt-10 grid gap-6 md:grid-cols-2">{demoCertificateCards.map((card) => <article key={card.title} className="border-t-2 border-brand-teal bg-brand-background p-6"><h3 className="font-display text-xl font-bold text-brand-navy">{card.title}</h3><p className="mt-3 leading-7 text-slate-600">{card.text}</p></article>)}</div></div></section>
+      <section id="media-contact" className="section-spacing scroll-mt-24 bg-brand-background"><div className="container-page"><div className="rounded-lg bg-brand-navy p-8 text-white shadow-soft sm:p-10 lg:p-12"><p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-200">Media enquiry</p><h2 className="mt-4 font-display text-3xl font-extrabold sm:text-4xl">Request approved media information.</h2><p className="mt-4 max-w-2xl leading-7 text-slate-200">Use the Contact Us page for media-related enquiries. This demo section does not publish unverified documents, press coverage, certificates, or external links.</p><Button href="/contact-us" className="mt-7 bg-white !text-brand-teal hover:bg-slate-100">Contact Us</Button></div></div></section>
     </>
   );
 }
