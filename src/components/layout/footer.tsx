@@ -27,7 +27,7 @@ export function Footer() {
       style={{ backgroundImage: `url('${basePath}/assets/footer-truck.png')` }}
     >
       <div className="container-page py-10 lg:py-12">
-        <div className="grid gap-10 rounded-3xl border border-white/45 bg-white/35 p-6 shadow-[0_18px_50px_rgba(11,31,58,0.1)] backdrop-blur-md sm:p-8 lg:grid-cols-[1.15fr_0.85fr_0.9fr] lg:p-10">
+        <div className="grid gap-10 rounded-3xl border border-white/30 bg-white/20 p-6 shadow-[0_18px_50px_rgba(11,31,58,0.08)] backdrop-blur-sm sm:p-8 lg:grid-cols-[1.15fr_0.85fr_0.9fr] lg:p-10">
         <div>
           <div className="flex items-center gap-4">
             <span className="relative block h-14 w-14 shrink-0 overflow-hidden rounded-md bg-white">
