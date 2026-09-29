@@ -7,7 +7,6 @@ import { assetPath } from "@/lib/assets";
 
 const equipment = Array.from({ length: 11 }, (_, index) => ({
   id: index,
-  title: `Equipment ${String(index + 1).padStart(2, "0")}`,
   image: assetPath(`/assets/equipment/equipment-${index + 1}.png`)
 }));
 
@@ -40,8 +39,7 @@ export default function ThreeDCarousel() {
                 pointerEvents: visible ? "auto" : "none"
               }}
             >
-              <Image src={item.image} alt={item.title} fill sizes="(max-width: 640px) 144px, 208px" className="object-cover" priority={index < 3} />
-              <span className="absolute inset-x-0 bottom-0 bg-brand-navy/75 px-3 py-2 text-center text-xs font-medium tracking-[0.14em] text-white backdrop-blur-[2px]">{item.title}</span>
+              <Image src={item.image} alt="Industrial equipment" fill sizes="(max-width: 640px) 144px, 208px" className="object-cover" priority={index < 3} />
             </article>
           );
         })}
