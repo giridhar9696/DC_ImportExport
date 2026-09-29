@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { pageMetadata } from "@/lib/seo";
 import { ServiceCard, ServicesHero } from "./services-ui";
 import { serviceHeroImage, services } from "./service-data";
-import { SectionSubnav } from "@/components/ui/section-subnav";
 
 export const metadata = pageMetadata({
   title: "Services",
@@ -23,12 +22,6 @@ export default function ServicesPage() {
         image={serviceHeroImage}
         imageAlt="Container vessel docked at a logistics port"
       />
-
-      <section className="bg-brand-background py-4">
-        <div className="container-page">
-          <SectionSubnav items={[{ label: "Our Services", href: "/services" }, ...services.map((service) => ({ label: service.title, href: `/services/${service.slug}` })), { label: "Tariff", href: "/services/tariff" }]} />
-        </div>
-      </section>
 
       <section className="section-spacing bg-white">
         <div className="container-page max-w-4xl">

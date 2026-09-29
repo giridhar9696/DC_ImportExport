@@ -224,7 +224,7 @@ export default function ContactUsPage() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <Button href="/services" className="bg-white text-brand-navy hover:bg-slate-100">
+                <Button href="/services" className="bg-brand-teal !text-white hover:bg-teal-600">
                   View Services
                 </Button>
                 <Link

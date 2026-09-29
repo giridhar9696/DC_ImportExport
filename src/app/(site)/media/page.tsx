@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { pageMetadata } from "@/lib/seo";
 import { mediaHeroImage, mediaSections } from "./media-data";
 import { MediaHero } from "./media-ui";
-import { SectionSubnav } from "@/components/ui/section-subnav";
 
 export const metadata = pageMetadata({
   title: "Media",
@@ -24,12 +23,6 @@ export default function MediaPage() {
         image={mediaHeroImage}
         imageAlt="Premium trade and logistics editorial media visual"
       />
-
-      <section className="bg-brand-background py-4">
-        <div className="container-page">
-          <SectionSubnav items={mediaSections.map((section) => ({ label: section.title, href: section.href }))} />
-        </div>
-      </section>
 
       <section className="section-spacing bg-white">
         <div className="container-page max-w-4xl">

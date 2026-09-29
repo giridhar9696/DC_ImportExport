@@ -8,7 +8,7 @@ const config: Config = {
         brand: {
           teal: "#14B8A6",
           navy: "#0B1F3A",
-          background: "#F8FAFC",
+          background: "#FBF4E5",
           body: "#1F2937",
           white: "#FFFFFF"
         }
