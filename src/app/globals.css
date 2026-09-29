@@ -17,6 +17,10 @@ section.bg-white {
   background-color: var(--brand-background);
 }
 
+.bg-white {
+  background-color: var(--brand-background) !important;
+}
+
 * {
   box-sizing: border-box;
 }

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 import { assetPath } from "@/lib/assets";
+import { SectionSubnav } from "@/components/ui/section-subnav";
 
 export const metadata = pageMetadata({
   title: "About",
@@ -69,6 +70,12 @@ export default function AboutPage() {
               supplied.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-brand-background py-4">
+        <div className="container-page">
+          <SectionSubnav items={aboutLinks.map(({ title, href }) => ({ label: title, href }))} />
         </div>
       </section>
 
