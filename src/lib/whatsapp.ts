@@ -9,6 +9,10 @@ export type WhatsAppEnquiryData = {
   message: string;
 };
 
+function buildWhatsAppUrl(message: string) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
 export function buildWhatsAppEnquiryUrl(data: WhatsAppEnquiryData) {
   const lines = [
     "Hello, I would like to make an enquiry.",
@@ -26,5 +30,36 @@ export function buildWhatsAppEnquiryUrl(data: WhatsAppEnquiryData) {
     "Sent from the company website."
   ].filter((line): line is string => line !== null);
 
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
+  return buildWhatsAppUrl(lines.join("\n"));
+}
+
+export type CareerEnquiryData = {
+  role: string;
+  name: string;
+  email: string;
+  phone: string;
+  experience: string;
+  message: string;
+};
+
+export function buildWhatsAppCareerEnquiryUrl(data: CareerEnquiryData) {
+  const lines = [
+    "Hello, I would like to enquire about a career opportunity.",
+    "",
+    "Career Enquiry",
+    "",
+    `Enquiry / Role: ${data.role.trim()}`,
+    "",
+    `Name: ${data.name.trim()}`,
+    `Email: ${data.email.trim()}`,
+    data.phone.trim() ? `Phone: ${data.phone.trim()}` : null,
+    data.experience.trim() ? `Experience: ${data.experience.trim()}` : null,
+    "",
+    "Message:",
+    data.message.trim(),
+    "",
+    "Sent from the Careers section of the website."
+  ].filter((line): line is string => line !== null);
+
+  return buildWhatsAppUrl(lines.join("\n"));
 }

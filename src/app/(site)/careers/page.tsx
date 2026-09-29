@@ -9,10 +9,10 @@ import {
   UsersRound
 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { pageMetadata } from "@/lib/seo";
 import { assetPath } from "@/lib/assets";
+import { CareerRoleEnquiry } from "./career-role-enquiry";
 
 export const metadata = pageMetadata({
   title: "Careers",
@@ -260,42 +260,7 @@ export default function CareersPage() {
               location, experience requirements, deadlines, or employment terms.
             </p>
           </div>
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            {opportunities.map((role) => (
-              <article
-                key={role.title}
-                className="rounded-lg border border-slate-200 bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-teal-200"
-              >
-                <span className="inline-flex rounded-full bg-teal-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-brand-teal">
-                  Demo Opportunity
-                </span>
-                <h3 className="mt-5 font-display text-2xl font-bold text-brand-navy">
-                  {role.title}
-                </h3>
-                <p className="mt-3 leading-7 text-slate-600">{role.description}</p>
-                <div className="mt-5">
-                  <p className="text-sm font-bold uppercase tracking-[0.14em] text-brand-navy">
-                    Example responsibilities
-                  </p>
-                  <ul className="mt-3 space-y-2">
-                    {role.bullets.map((bullet) => (
-                      <li key={bullet} className="flex gap-3 text-sm leading-6 text-slate-600">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-teal" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <Link
-                  href="/contact-us"
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.1em] text-brand-navy transition hover:text-brand-teal"
-                >
-                  Enquire About This Role
-                  <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                </Link>
-              </article>
-            ))}
-          </div>
+          <CareerRoleEnquiry opportunities={opportunities} />
         </div>
       </section>
 
