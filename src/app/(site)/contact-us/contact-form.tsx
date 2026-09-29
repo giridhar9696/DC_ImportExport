@@ -1,9 +1,10 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { Send } from "lucide-react";
+import { buildWhatsAppEnquiryUrl } from "@/lib/whatsapp";
 
-type FormState = {
+export type FormState = {
   fullName: string;
   email: string;
   phone: string;
@@ -33,12 +34,14 @@ const enquiryTypes = [
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [prepared, setPrepared] = useState(false);
+  const openingRef = useRef(false);
 
   function updateField(field: keyof FormState, value: string) {
     setForm((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined }));
-    setSubmitted(false);
+    setPrepared(false);
+    openingRef.current = false;
   }
 
   function validate() {
@@ -71,8 +74,17 @@ export function ContactForm() {
     setErrors(nextErrors);
 
     if (Object.keys(nextErrors).length === 0) {
-      setSubmitted(true);
-      setForm(initialState);
+      if (openingRef.current) return;
+      openingRef.current = true;
+      const whatsappUrl = buildWhatsAppEnquiryUrl(form);
+      const whatsappWindow = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+      if (!whatsappWindow) {
+        window.location.assign(whatsappUrl);
+        return;
+      }
+
+      setPrepared(true);
     }
   }
 
@@ -95,17 +107,17 @@ export function ContactForm() {
           Send a demo enquiry.
         </h2>
         <p className="mt-4 leading-7 text-slate-600">
-          This form validates locally and shows a demo success message. It does
-          not send data to email, CRM, database, API, or any external service.
+          Complete the fields below to prepare this enquiry in WhatsApp. The
+          website does not send data to email, CRM, database, API, or any backend.
         </p>
       </div>
 
-      {submitted ? (
+      {prepared ? (
         <div
           role="status"
           className="mt-6 rounded-md border border-teal-200 bg-teal-50 px-4 py-3 text-sm font-semibold text-brand-navy"
         >
-          Demo enquiry submitted. No information was transmitted externally.
+          Your enquiry has been prepared in WhatsApp. Review it there before sending.
         </div>
       ) : null}
 

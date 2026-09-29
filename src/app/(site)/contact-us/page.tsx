@@ -119,7 +119,8 @@ export default function ContactUsPage() {
             <p className="body-copy mt-5">
               This page is designed to gather enquiry context in a professional
               format without presenting unverified company contact details as
-              real. All submitted data remains in the browser demo interaction.
+              real. Valid submissions are prepared in WhatsApp after the user
+              clicks the form button.
             </p>
           </div>
           <div className="rounded-lg border border-slate-200 bg-brand-background p-6 shadow-soft">
@@ -128,9 +129,10 @@ export default function ContactUsPage() {
               Demo-safe communication
             </h3>
             <p className="mt-3 leading-7 text-slate-600">
-              The form and contact cards are placeholders for a future verified
-              setup. They avoid invented addresses, phone numbers, email
-              recipients, map locations, and service integrations.
+              The contact cards remain placeholders for a future verified setup.
+              The enquiry form uses WhatsApp click-to-chat after explicit user
+              submission and avoids invented addresses, map locations, or CRM
+              integrations.
             </p>
           </div>
         </div>
