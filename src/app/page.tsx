@@ -73,7 +73,6 @@ export default function HomePage() {
           <video className="h-full w-full object-cover" autoPlay muted loop playsInline poster={`${basePath}/assets/home-hero-ship.png`} aria-label="Cargo ship at sea">
             <source src={`${basePath}/assets/home-cargo.mp4`} type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-black/25" />
         </div>
         <div className="container-page flex min-h-[640px] items-center py-20 sm:py-24 lg:min-h-[720px]">
           <div className="max-w-3xl">

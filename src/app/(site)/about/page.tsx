@@ -54,7 +54,6 @@ export default function AboutPage() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,31,58,0.9),rgba(11,31,58,0.68),rgba(11,31,58,0.28))]" />
         </div>
         <div className="container-page flex min-h-[520px] items-center py-20 sm:py-24">
           <div className="max-w-3xl">

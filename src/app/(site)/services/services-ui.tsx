@@ -23,7 +23,6 @@ export function ServicesHero({
     <section className="relative isolate overflow-hidden bg-brand-navy text-white">
       <div className="absolute inset-0 -z-10">
         <Image src={image} alt={imageAlt} fill priority sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,31,58,0.9),rgba(11,31,58,0.68),rgba(11,31,58,0.28))]" />
       </div>
       <div className="container-page flex min-h-[500px] items-center py-20 sm:py-24">
         <div className="max-w-3xl">
