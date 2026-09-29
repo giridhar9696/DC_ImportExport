@@ -59,7 +59,7 @@ export function Header() {
 
         <nav
           aria-label="Primary navigation"
-          className="ml-auto flex flex-wrap items-center justify-end gap-0.5"
+          className="ml-auto flex flex-wrap items-center justify-end gap-0.5 max-md:w-full max-md:justify-center"
         >
           {navigation.map((item) =>
             item.children ? (

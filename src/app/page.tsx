@@ -2,7 +2,7 @@ import { ArrowRight, ClipboardCheck, FileText, Globe2, PackageCheck, Ship, Truck
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import CircularSplitRoll from "@/components/ui/circular-split-roll";
+import ThreeDCarousel from "@/components/ui/three-d-carousel";
 import { assetPath } from "@/lib/assets";
 import { pageMetadata } from "@/lib/seo";
 
@@ -223,7 +223,7 @@ export default function HomePage() {
             <h2 className="heading-lg mt-4">Built around the equipment that keeps cargo moving.</h2>
             <p className="body-copy mt-5">Explore a practical range of handling, transport, and industrial equipment supporting global trade operations.</p>
           </div>
-          <CircularSplitRoll />
+          <ThreeDCarousel />
         </div>
       </section>
 
